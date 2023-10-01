@@ -7,9 +7,21 @@ const assert = require("assert");
 
 function findRoots(a, b, c) {
   /// your code here, return roots
+  const d = b*b - 4 * a *c;
+  if(d < 0){
+    return [];
+  } else if(d == 0){
+    const root = -1 * b / 2 * a;
+    return [root]
+  }else {
+    const dRoot = Math.sqrt(d)
+    const root1 = (-1*b - dRoot) / 2*a;
+    const root2 = (-1*b + dRoot) / 2*a;
+    return [root1, root2]
+  }
 }
 
-assert.equal(new Set(findRoots(1, -2, 1)), new Set([-1, 1]));
-assert.equal(new Set(findRoots(1, -5, 6)), new Set([2, 3]));
-assert.equal(new Set(findRoots(1, 2, 1)), new Set([-1]));
-assert.equal(new Set(findRoots(1, 2, 2)), new Set([]));
+assert.deepEqual(new Set(findRoots(1, 0, -1)), new Set([-1, 1]));
+assert.deepEqual(new Set(findRoots(1, -5, 6)), new Set([2, 3]));
+assert.deepEqual(new Set(findRoots(1, 2, 1)), new Set([-1]));
+assert.deepEqual(new Set(findRoots(1, 2, 2)), new Set([]));

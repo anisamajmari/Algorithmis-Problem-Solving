@@ -3,6 +3,13 @@ const assert = require("assert");
 
 function findLargestOfThree(first, second, third) {
   /// your code here, find the value and return it
+  if(second >= first && second >= third){
+    return second;
+  }else if(third >= second && third >= first){
+    return third;
+  }else{
+   return first;
+  }
 }
 
 assert.equal(findLargestOfThree(1, 2, 3), 3);
